@@ -12,6 +12,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "e2e": "cypress open --e2e --config-file src/test/webapp/e2e/cypress-config.ts",
+    "e2e:headless": "cypress run --headless --config-file src/test/webapp/e2e/cypress-config.ts",
     "dev": "npm-run-all --parallel dev:*",
     "dev:ng": "ng serve",
     "ng": "ng",
@@ -30,6 +32,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "cypress": "14.1.0",
+    "eslint-plugin-cypress": "4.1.0",
     "@typescript-eslint/eslint-plugin": "8.26.0",
     "@typescript-eslint/parser": "8.26.0",
     "eslint": "9.21.0",

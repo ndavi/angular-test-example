@@ -18,11 +18,9 @@ npm install
 
 ## Local environment
 
-
 <!-- jhipster-needle-localEnvironment -->
 
 ## Start up
-
 
 <!-- jhipster-needle-startupCommand -->
 

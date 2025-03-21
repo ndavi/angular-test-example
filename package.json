@@ -8,11 +8,30 @@
     "node": ">=22"
   },
   "scripts": {
+    "lint": "eslint .",
+    "test": "npm run watch:test",
+    "test:coverage": "vitest run --coverage",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:tsc": "tsc --noEmit --watch",
+    "watch:test": "vitest --",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
     "prepare": "husky"
   },
   "devDependencies": {
+    "typescript": "5.8.2",
+    "@tsconfig/recommended": "1.0.8",
+    "@typescript-eslint/eslint-plugin": "8.26.0",
+    "@typescript-eslint/parser": "8.26.0",
+    "@vitest/coverage-istanbul": "3.0.7",
+    "eslint": "9.21.0",
+    "eslint-config-prettier": "10.0.2",
+    "globals": "16.0.0",
+    "npm-run-all2": "7.0.2",
+    "typescript-eslint": "8.26.0",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.7",
+    "vitest-sonar-reporter": "2.0.0",
     "@prettier/plugin-xml": "3.4.1",
     "prettier": "3.5.3",
     "prettier-plugin-gherkin": "3.1.1",
@@ -21,5 +40,6 @@
     "prettier-plugin-packagejson": "2.5.10",
     "husky": "9.1.7",
     "lint-staged": "15.4.3"
-  }
+  },
+  "type": "module"
 }

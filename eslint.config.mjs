@@ -2,6 +2,7 @@ import eslint from '@eslint/js';
 import angular from 'angular-eslint';
 import globals from 'globals';
 import typescript from 'typescript-eslint';
+import cypress from 'eslint-plugin-cypress/flat';
 
 export default typescript.config(
   {
@@ -15,6 +16,18 @@ export default typescript.config(
     ignores: ['target/', '.angular/'],
   },
   eslint.configs.recommended,
+  {
+    files: ['src/test/webapp/e2e/**/*.ts'],
+    extends: [...typescript.configs.recommendedTypeChecked, cypress.configs.recommended],
+    languageOptions: {
+      parserOptions: {
+        project: ['src/test/webapp/e2e/tsconfig.json'],
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+    },
+  },
   {
     files: ['src/main/webapp/**/*.ts'],
     extends: [...typescript.configs.strictTypeChecked, ...typescript.configs.stylistic, ...angular.configs.tsRecommended],

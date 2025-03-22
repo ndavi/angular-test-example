@@ -1,0 +1,29 @@
+<section class="p-4">
+  <h2>Mon super formulaire</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-1">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label data-selector="form.username.label">Nom d'utilisateur</mat-label>
+      <input data-selector="form.username.value" matInput placeholder="Saisir le nom d'utilisateur" formControlName="username" />
+      <mat-error>
+        @if (loginForm.controls.username.errors?.['required']) {
+          <span data-selector="form.username.username.error.required">Le nom d'utilisateur est requis</span>
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label data-selector="form.password.label">Mot de passe</mat-label>
+      <input data-selector="form.password.value" matInput placeholder="Saisir le mot de passe" type="password" formControlName="password" />
+      <mat-error>
+        @if (loginForm.controls.password.errors?.['required']) {
+          <span data-selector="form.username.password.error.required">Le mot de passe est requis</span>
+        }
+        @if (loginForm.controls.password.errors?.['invalidPassword']) {
+          <span data-selector="form.username.password.error.invalidPassword">Le mot de passe est invalide</span>
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <button data-selector="form.submit.button" mat-raised-button color="primary" type="submit">Connexion</button>
+  </form>
+</section>
